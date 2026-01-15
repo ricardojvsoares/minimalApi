@@ -1,41 +1,79 @@
+using System.Data;
+using Microsoft.Data.SqlClient;
+using Dapper;
+using Asp.Versioning;
+using Serilog;
+using DashboardCargas.Api.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Configuração do Serilog
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Host.UseSerilog();
+
+// Injeção de Dependências e Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Configuração de Versionamento
+builder.Services.AddApiVersioning(options => {
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+    options.ApiVersionReader = new UrlSegmentApiVersionReader();
+}).AddApiExplorer(options => {
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Pipeline de Desenvolvimento
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI(options => {
+        var descriptions = app.DescribeApiVersions();
+        foreach (var desc in descriptions)
+            options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json", desc.GroupName.ToUpperInvariant());
+    });
 }
 
-app.UseHttpsRedirection();
+// Conjunto de versões para as rotas
+var versionSet = app.NewApiVersionSet()
+    .HasApiVersion(new ApiVersion(1, 0))
+    .Build();
 
-var summaries = new[]
+// ENDPOINT: api/v1/orders
+app.MapGet("api/v{version:apiVersion}/orders", async (
+    DateTime startDate, 
+    DateTime endDate, 
+    IConfiguration config) => 
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    try 
+    {
+        using IDbConnection db = new SqlConnection(config.GetConnectionString("DefaultConnection"));
+        
+        var parameters = new { StartDate = startDate, EndDate = endDate };
+        
+        var orders = await db.QueryAsync<TransportOrder>(
+            "sp_GetTransportOrders", 
+            parameters, 
+            commandType: CommandType.StoredProcedure
+        );
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+        return Results.Ok(orders);
+    }
+    catch (Exception ex) 
+    {
+        Log.Error(ex, "Erro ao obter cargas");
+        return Results.Problem("Erro interno no servidor.");
+    }
 })
-.WithName("GetWeatherForecast");
+.WithApiVersionSet(versionSet)
+.WithName("GetOrdersV1");
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
