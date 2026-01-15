@@ -1,0 +1,9 @@
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.csproj.AssemblyReference.cache
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.AssemblyInfoInputs.cache
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.AssemblyInfo.cs
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.csproj.CoreCompileInputs.cache
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Utilizador\minimalApi\minimalApi.Api\obj\Debug\net10.0\minimalApi.Api.sourcelink.json
