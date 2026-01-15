@@ -1,0 +1,266 @@
+2026-01-15 15:50:35.904 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-01-15 15:50:35.981 +00:00 [INF] Now listening on: http://localhost:5284
+2026-01-15 15:50:35.983 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-15 15:50:35.983 +00:00 [INF] Hosting environment: Development
+2026-01-15 15:50:35.984 +00:00 [INF] Content root path: C:\Users\Utilizador\minimalApi\minimalApi.Api
+2026-01-15 15:50:38.727 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/ - null null
+2026-01-15 15:50:38.763 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/ - 404 0 null 36.7431ms
+2026-01-15 15:50:38.767 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5284/, Response status code: 404
+2026-01-15 15:55:17.506 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-01-15 15:55:17.602 +00:00 [INF] Now listening on: http://localhost:5284
+2026-01-15 15:55:17.603 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-15 15:55:17.604 +00:00 [INF] Hosting environment: Development
+2026-01-15 15:55:17.605 +00:00 [INF] Content root path: C:\Users\Utilizador\minimalApi\minimalApi.Api
+2026-01-15 15:55:19.724 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/swagger/index.html - null null
+2026-01-15 15:55:19.787 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/swagger/index.html - 200 null text/html;charset=utf-8 63.2149ms
+2026-01-15 15:55:20.001 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/swagger/v1/swagger.json - null null
+2026-01-15 15:55:20.047 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 46.862ms
+2026-01-15 15:55:30.858 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-01 - null null
+2026-01-15 15:55:30.867 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 15:55:45.962 +00:00 [ERR] Erro ao obter cargas
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 27
+   at Program.<>c.<<<Main>$>b__0_3>d.MoveNext() in C:\Users\Utilizador\minimalApi\minimalApi.Api\Program.cs:line 60
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 15:55:45.984 +00:00 [INF] Setting HTTP status code 500.
+2026-01-15 15:55:45.996 +00:00 [INF] Writing value of type 'ProblemDetails' as Json.
+2026-01-15 15:55:46.005 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 15:55:46.007 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-01 - 500 null application/problem+json 15149.4686ms
+2026-01-15 15:58:28.541 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-01-15 15:58:28.629 +00:00 [INF] Now listening on: http://localhost:5284
+2026-01-15 15:58:28.631 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-15 15:58:28.632 +00:00 [INF] Hosting environment: Development
+2026-01-15 15:58:28.632 +00:00 [INF] Content root path: C:\Users\Utilizador\minimalApi\minimalApi.Api
+2026-01-15 15:58:33.180 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-01 - null null
+2026-01-15 15:58:33.222 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 15:58:48.329 +00:00 [WRN] Falha ao aceder à base de dados — a devolver dados de exemplo.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 36
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 15:58:48.354 +00:00 [INF] Setting HTTP status code 200.
+2026-01-15 15:58:48.364 +00:00 [INF] Writing value of type 'List`1' as Json.
+2026-01-15 15:58:48.381 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 15:58:48.384 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-01 - 200 null application/json; charset=utf-8 15204.8027ms
+2026-01-15 15:59:04.222 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-15 - null null
+2026-01-15 15:59:04.224 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 15:59:19.235 +00:00 [WRN] Falha ao aceder à base de dados — a devolver dados de exemplo.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 36
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 15:59:19.239 +00:00 [INF] Setting HTTP status code 200.
+2026-01-15 15:59:19.240 +00:00 [INF] Writing value of type 'List`1' as Json.
+2026-01-15 15:59:19.241 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 15:59:19.241 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-15 - 200 null application/json; charset=utf-8 15020.093ms
+2026-01-15 16:02:13.752 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-01-15 16:02:13.837 +00:00 [INF] Now listening on: http://localhost:5284
+2026-01-15 16:02:13.839 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-15 16:02:13.839 +00:00 [INF] Hosting environment: Development
+2026-01-15 16:02:13.840 +00:00 [INF] Content root path: C:\Users\Utilizador\minimalApi\minimalApi.Api
+2026-01-15 16:02:20.225 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-15 - null null
+2026-01-15 16:02:20.263 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:02:35.360 +00:00 [WRN] Falha ao aceder à base de dados — a devolver dados de exemplo.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 37
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 16:02:35.388 +00:00 [INF] Setting HTTP status code 200.
+2026-01-15 16:02:35.399 +00:00 [INF] Writing value of type 'OrderedIterator`2' as Json.
+2026-01-15 16:02:35.422 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:02:35.424 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-01&endDate=2026-01-15 - 200 null application/json; charset=utf-8 15199.8621ms
+2026-01-15 16:02:44.747 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-13&endDate=2026-01-14 - null null
+2026-01-15 16:02:44.750 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:02:59.765 +00:00 [WRN] Falha ao aceder à base de dados — a devolver dados de exemplo.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 37
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 16:02:59.769 +00:00 [INF] Setting HTTP status code 200.
+2026-01-15 16:02:59.769 +00:00 [INF] Writing value of type 'OrderedIterator`2' as Json.
+2026-01-15 16:02:59.770 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:02:59.771 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-13&endDate=2026-01-14 - 200 null application/json; charset=utf-8 15024.1084ms
+2026-01-15 16:07:14.905 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-01-15 16:07:14.994 +00:00 [INF] Now listening on: http://localhost:5284
+2026-01-15 16:07:14.996 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-15 16:07:14.997 +00:00 [INF] Hosting environment: Development
+2026-01-15 16:07:14.998 +00:00 [INF] Content root path: C:\Users\Utilizador\minimalApi\minimalApi.Api
+2026-01-15 16:07:16.639 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/swagger/index.html - null null
+2026-01-15 16:07:16.696 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/swagger/index.html - 200 null text/html;charset=utf-8 58.1658ms
+2026-01-15 16:07:16.889 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/swagger/v1/swagger.json - null null
+2026-01-15 16:07:16.940 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 50.9429ms
+2026-01-15 16:07:44.195 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-14&endDate=2026-01-15 - null null
+2026-01-15 16:07:44.204 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:07:59.312 +00:00 [WRN] Falha ao aceder à base de dados — a devolver dados de exemplo.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 37
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 16:07:59.327 +00:00 [INF] Setting HTTP status code 200.
+2026-01-15 16:07:59.335 +00:00 [INF] Writing value of type 'OrderedIterator`2' as Json.
+2026-01-15 16:07:59.352 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:07:59.353 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-14&endDate=2026-01-15 - 200 null application/json; charset=utf-8 15157.8256ms
+2026-01-15 16:09:31.777 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-14&endDate=2026-01-15 - null null
+2026-01-15 16:09:31.779 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:09:46.799 +00:00 [WRN] Falha ao aceder à base de dados — a devolver dados de exemplo.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 37
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 16:09:46.803 +00:00 [INF] Setting HTTP status code 200.
+2026-01-15 16:09:46.803 +00:00 [INF] Writing value of type 'OrderedIterator`2' as Json.
+2026-01-15 16:09:46.804 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:09:46.805 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-14&endDate=2026-01-15 - 200 null application/json; charset=utf-8 15027.503ms
+2026-01-15 16:09:53.505 +00:00 [INF] Application is shutting down...
+2026-01-15 16:13:11.211 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-01-15 16:13:11.300 +00:00 [INF] Now listening on: http://localhost:5284
+2026-01-15 16:13:11.303 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-15 16:13:11.303 +00:00 [INF] Hosting environment: Development
+2026-01-15 16:13:11.304 +00:00 [INF] Content root path: C:\Users\Utilizador\minimalApi\minimalApi.Api
+2026-01-15 16:13:13.426 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-14&endDate=2026-01-15 - null null
+2026-01-15 16:13:13.466 +00:00 [INF] Executing endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:13:28.564 +00:00 [WRN] Falha ao aceder à base de dados — a devolver dados de exemplo.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 433
+   at DashboardCargas.Api.Repositories.OrderRepository.GetOrdersAsync(DateTime startDate, DateTime endDate) in C:\Users\Utilizador\minimalApi\minimalApi.Api\Repositories\OrderRepository.cs:line 37
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2026-01-15 16:13:28.594 +00:00 [INF] Setting HTTP status code 200.
+2026-01-15 16:13:28.605 +00:00 [INF] Writing value of type 'OrderedIterator`2' as Json.
+2026-01-15 16:13:28.625 +00:00 [INF] Executed endpoint 'HTTP: GET api/v{version:apiVersion}/orders'
+2026-01-15 16:13:28.628 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5284/api/v1/orders?startDate=2026-01-14&endDate=2026-01-15 - 200 null application/json; charset=utf-8 15203.5344ms
+2026-01-15 16:15:49.465 +00:00 [INF] Application is shutting down...
+2026-01-15 16:15:53.015 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-01-15 16:15:53.102 +00:00 [INF] Now listening on: http://localhost:5284
+2026-01-15 16:15:53.104 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-15 16:15:53.105 +00:00 [INF] Hosting environment: Development
+2026-01-15 16:15:53.105 +00:00 [INF] Content root path: C:\Users\Utilizador\minimalApi\minimalApi.Api
+2026-01-15 16:17:24.562 +00:00 [INF] Application is shutting down...
